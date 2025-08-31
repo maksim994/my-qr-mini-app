@@ -4,7 +4,7 @@ import { ProxyServer } from 'http-proxy'; // Импорт типа для про
 
 export default defineConfig({
   server: {
-    allowedHosts: ['b203ebf4d2d5.ngrok-free.app'], // Твой ngrok-URL
+    allowedHosts: ['b6da5e64b6a0.ngrok-free.app'], // Твой ngrok-URL
     proxy: {
       '/api/list': {
         target: 'https://g-qr.ru',
@@ -12,7 +12,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api\/list/, '/api/1/list'),
         configure: (proxy: ProxyServer, _options) => {
           proxy.on('proxyReq', (proxyReq: any, req: any) => {
-            console.log('Proxy request URL for /api/list:', req.url); // Отладка
+            console.log('Proxy request URL for /api/list:', req.url);
           });
         },
       },
@@ -22,7 +22,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, '/api/1/validate'),
         configure: (proxy: ProxyServer, _options) => {
           proxy.on('proxyReq', (proxyReq: any, req: any) => {
-            console.log('Proxy request URL for /api:', req.url); // Отладка
+            console.log('Proxy request URL for /api:', req.url);
           });
         },
       },
